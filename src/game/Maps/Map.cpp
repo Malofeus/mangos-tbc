@@ -48,6 +48,10 @@
 #include "playerbot/playerbot.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 #include <time.h>
 
 Map::~Map()
@@ -447,6 +451,10 @@ bool Map::Add(Player* player)
 
     if (IsRaid())
         player->RemoveAllGroupBuffsFromCaster(ObjectGuid());
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.OnMapChanged(player);
+#endif
 
     if (i_data)
         i_data->OnPlayerEnter(player);

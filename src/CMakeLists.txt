@@ -28,7 +28,7 @@ if(BUILD_PLAYERBOTS)
   FetchContent_Declare(
     PlayerBots
     SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots"
-    GIT_REPOSITORY "https://github.com/cmangos/playerbots.git"
+    GIT_REPOSITORY "https://github.com/malofeus/playerbots.git"
     GIT_TAG "master"
   )
 
@@ -37,7 +37,7 @@ if(BUILD_PLAYERBOTS)
     FetchContent_Populate(PlayerBots)
     message(STATUS "Playerbots module source dir: ${playerbots_SOURCE_DIR}")
   else()
-    message(STATUS "Playerbots module already populated: ${playerbots_POPULATED}")
+    message(STATUS "Playerbots module already populated: ${playerbots_POPULATED}")  
   endif()
 
   add_subdirectory(${playerbots_SOURCE_DIR})
@@ -47,6 +47,35 @@ else()
     message(STATUS "PlayerBots module exists, but not building. You can remove it manually if you don't need it. (rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)")
 
     #file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/modules/PlayerBots)
+  endif()
+endif()
+
+# SoloCraft module
+if(BUILD_SOLOCRAFT)
+  include(FetchContent)
+
+  FetchContent_Declare(
+    SoloCraft
+    SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft"
+    GIT_REPOSITORY "https://github.com/malofeus/SoloCraft.git"
+    GIT_TAG "master"
+  )
+
+  FetchContent_GetProperties(SoloCraft)
+  if (NOT solocraft_POPULATED)
+    FetchContent_Populate(SoloCraft)
+    message(STATUS "SoloCraft module source dir: ${solocraft_SOURCE_DIR}")
+  else()
+    message(STATUS "Soloraft module already populated: ${solocraft_POPULATED}")  
+  endif()
+
+  add_subdirectory(${solocraft_SOURCE_DIR})
+
+else()
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)
+    message(STATUS "SoloCraft module exists, but not building. You can remove it manually if you don't need it. (rm -rf ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)")
+
+    #file(REMOVE_RECURSE ${CMAKE_CURRENT_SOURCE_DIR}/modules/SoloCraft)
   endif()
 endif()
 

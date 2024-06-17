@@ -49,6 +49,10 @@
 #include "playerbot/PlayerbotAIConfig.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 // config option SkipCinematics supported values
 enum CinematicsSkipMode
 {
@@ -990,6 +994,11 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
         pCurrChar->SetStandState(UNIT_STAND_STATE_STAND);
 
     m_playerLoading = false;
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.OnLogin(pCurrChar);
+#endif
+
     delete holder;
 }
 

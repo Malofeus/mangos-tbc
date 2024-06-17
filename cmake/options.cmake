@@ -8,6 +8,7 @@ option(BUILD_EXTRACTORS                     "Build map/dbc/vmap/mmap extractors"
 option(BUILD_SCRIPTDEV                      "Build ScriptDev. (OFF Speedup build)"      ON)
 option(BUILD_PLAYERBOTS                     "Build Playerbots mod"                      OFF)
 option(BUILD_AHBOT                          "Build Auction House Bot mod"               OFF)
+option(BUILD_SOLOCRAFT                      "BUILD SoloCraft mod"                       OFF)
 option(BUILD_METRICS                        "Build Metrics, generate data for Grafana"  OFF)
 option(BUILD_RECASTDEMOMOD                  "Build map/vmap/mmap viewer"                OFF)
 option(BUILD_GIT_ID                         "Build git_id"                              OFF)
@@ -34,8 +35,9 @@ message(STATUS
     BUILD_GAME_SERVER       Build game server (core server)
     BUILD_LOGIN_SERVER      Build login server (auth server)
     BUILD_EXTRACTORS        Build map/dbc/vmap/mmap extractor
-	BUILD_PLAYERBOTS        Build Playerbots mod
+	  BUILD_PLAYERBOTS        Build Playerbots mod
     BUILD_AHBOT             Build Auction House Bot mod
+    BUILD_SOLOCRAFT         Build SoloCraft mod
     BUILD_METRICS           Build Metrics, generate data for Grafana
     BUILD_RECASTDEMOMOD     Build map/vmap/mmap viewer
     BUILD_GIT_ID            Build git_id
