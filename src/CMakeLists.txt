@@ -33,7 +33,7 @@ if(BUILD_PLAYERBOTS)
     GIT_TAG "unix-playerbot-config-fix"
   )
 
-  FetchContent_GetProperties(PlayerBots)
+  FetchContent_Populate(PlayerBots)
   if (NOT playerbots_POPULATED)
     FetchContent_MakeAvailable(PlayerBots)
     message(STATUS "Playerbots module source dir: ${playerbots_SOURCE_DIR}")
@@ -62,7 +62,7 @@ if(BUILD_SOLOCRAFT)
     GIT_TAG "master"
   )
 
-  FetchContent_GetProperties(SoloCraft)
+  FetchContent_Populate(SoloCraft)
   if (NOT solocraft_POPULATED)
     FetchContent_MakeAvailable(SoloCraft)
     message(STATUS "SoloCraft module source dir: ${solocraft_SOURCE_DIR}")
