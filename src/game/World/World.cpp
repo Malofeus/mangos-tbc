@@ -82,6 +82,10 @@
 #include "playerbot/RandomPlayerbotMgr.h"
 #endif
 
+#ifdef ENABLE_SOLOCRAFT
+#include "solocraft/SoloCraft.h"
+#endif
+
 #include <algorithm>
 #include <mutex>
 #include <cstdarg>
@@ -1492,6 +1496,10 @@ void World::SetInitialWorldSettings()
 #ifndef BUILD_AHBOT
     auctionbot.Init();
 #endif
+#endif
+
+#ifdef ENABLE_SOLOCRAFT
+    sSolocraft.Initialize();
 #endif
 
     sLog.outString("---------------------------------------");
